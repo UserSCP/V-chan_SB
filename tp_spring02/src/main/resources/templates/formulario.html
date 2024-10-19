@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buscar Personas</title>
+</head>
+<body>
+    <h1>Buscar Personas</h1>
+    <form th:action="@{/personas/buscarPorNombre}" method="get">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>
