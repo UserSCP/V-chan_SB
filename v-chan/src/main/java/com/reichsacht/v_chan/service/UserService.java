@@ -27,5 +27,13 @@ public class UserService {
 	public void deleteUser(Long id) {
 		repo.deleteById(id);
 	}
+	public User updateUser(Long id, User user) {
+		if(repo.existsById(id)) {
+			user.setId(id);
+			return repo.save(user);
+		}else {
+			throw new RuntimeException("No se encontro el usario");
+		}
+	}
 
 }
