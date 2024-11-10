@@ -2,19 +2,20 @@ package com.reichsacht.v_chan.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+//import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.model.User;
 import com.reichsacht.v_chan.repository.UserRepository;
 
 @Service
 public class UserService {
-	
 	@Autowired
 	private UserRepository repo;
-	
+//	@Autowired
+//	private PasswordEncoder passwordEncoder;
 	public List<User> getAllUsers(){
 		return repo.findAll();
 	}
@@ -35,5 +36,11 @@ public class UserService {
 			throw new RuntimeException("No se encontro el usario");
 		}
 	}
+//	public void save(User user) {
+//		
+//		user.setPassword(passwordEncoder.encode(user.getPassword()));
+//		user.setRole(Role.USER);
+//		repo.save(user);
+//	}
 
 }
