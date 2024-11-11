@@ -5,6 +5,9 @@
         <p style="color: red;">Usuario o contraseña incorrectos. Inténtalo de nuevo.</p>
         
     </div>
+    <div th:if="${param.logout}">
+        <p>Sesión cerrada correctamente.</p>
+    </div>
     <form action="#" th:action="@{/login}" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required="required"/>

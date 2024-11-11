@@ -24,6 +24,7 @@ public class SecurityConfiguration {
 	@Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     	http
+    	
         .authorizeHttpRequests(authorizeRequests ->
             authorizeRequests
                 .requestMatchers("/login", "/register", "/", "/settings").permitAll()
@@ -43,8 +44,10 @@ public class SecurityConfiguration {
 
         .logout(logout ->
             logout
-                .logoutSuccessUrl("/login")
-                .permitAll()
+                .logoutUrl("/logout")  // Ruta del logout
+                .logoutSuccessUrl("/login?logout")  // Redirigir al login después del logout
+//                .invalidateHttpSession(true)  
+//                .clearAuthentication(true) 
         );
     return http.build();
     }
