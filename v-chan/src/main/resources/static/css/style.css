@@ -1,16 +1,16 @@
 @charset "UTF-8";
 body{
     font-family: 'AnimeAce', sans-serif;
-	margin:0;
+	margin:auto;
 }
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #212121;
-  color: white;
   text-align: center;
+  color: #eaecee;
+  background-color: #212121;
+  margin: 0;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 .navtop{
 	top:0;
@@ -22,6 +22,7 @@ body{
   	z-index: 1000; 
   	
 }
+
 .icon {
   position: relative;
   float: left;
@@ -52,4 +53,82 @@ body{
   background: #aaa;
   color: #fff;
   padding: 10px 15px;
+}
+
+.containerForm{
+    width: 25%;
+    padding: 2%;
+    margin: 25px 0px 25px 0px;
+    background: #f8f9f9;
+    border: 5px solid #212121;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inputSubmitForm{
+    width: 97%;
+    padding:3%;
+    font-family: AnimeAce;
+    background: #212121;
+    color: #fff;
+    border: 3px solid #212121;
+    cursor: pointer;
+}
+
+.inputTextForm{
+    width: 90%;
+    padding:3%;
+    font-family: AnimeAce;
+    color: #212121;
+    border: 3px solid #212121;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.inputTextForm:focus{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+label{
+    font-size: 18px;
+    font-family: AnimeAce;
+    color: #212121;
+    margin-bottom: 0.5%;
+}
+.h3_form{
+    color: #212121;
+    font-size: 50px;
+    font-family: AnimeAce;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+p{
+    color: #212121;
+    font-family: AnimeAce;
+}
+.container_image{
+	position: relative;
+	 width: 100%;
+}
+container-image{
+	position: relative; top: 0; left: 0; width: 100%;
+}
+.image{
+	opacity: 0.7; position: relative; filter: drop-shadow(8px 8px 10px gray);
+}
+.container_title{
+	position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); width: 100%;
+}
+.h1_home{
+	font-size: 50px; user-select: none;
+}
+.decaration_home{
+	font-size: 5rem; color: #212121;
+}
+.decaration{
+	font-size: 10rem;
+}
+.title_home{
+	text-decoration: none; color: #212121;
+}
+.links{
+	color:#212121; text-decoration:none;
 }

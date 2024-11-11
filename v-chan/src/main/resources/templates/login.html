@@ -8,15 +8,28 @@
     <div th:if="${param.logout}">
         <p>Sesión cerrada correctamente.</p>
     </div>
+        <div align="center">
+    <div class="containerForm">
+        <h3 class="h3_form">Log in</h3>
     <form action="#" th:action="@{/login}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required="required"/>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required="required"/>
-        
-        <button type="submit">Login</button>
-        <span>Si no estas registrado, <a th:href="@{/register}">Registrate aquí</a></span>
-    </form>
+            <div>
+                <label for="login_username"> Username </label>
+                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input inputTextForm" placeholder="Nombre de usuario" required>
+            </div>
+            <div style="margin-top:20px; margin-bottom:20px;">
+                <label for="login__password">Password</label>
+                <input id="login__password" type="password" name="password" class="form__input inputTextForm" placeholder="Contraseña" required>
+            </div>
+            <div style="font-family:AnimeAce; margin-bottom:10px;">
+                <input type="checkbox" name="cookie"> Mantener sesión iniciada
+            </div>    
+            <div>
+                <input type="submit" value="Iniciar Sesion" class="inputSubmitForm">
+            </div>
+        </form>
+             <p>¿No tenes cuenta?, <a th:href="@{/register}" class="links">Registrate</a></p>
+     
+    </div>
+</div>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class SecurityConfiguration {
 		this.userDetailsService = userDetailsService;
 	}
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .sessionManagement(session -> 
                 session
@@ -31,7 +31,7 @@ public class SecurityConfiguration {
             )
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/login", "/register", "/", "/settings", "/settings/").permitAll()
+                    .requestMatchers("/login", "/register", "/", "/settings/**").permitAll()
                     .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**").permitAll()
                     .requestMatchers("/users/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
@@ -61,7 +61,7 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+     AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         return auth.build();
