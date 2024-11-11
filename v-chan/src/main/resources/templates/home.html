@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-
 <div th:if="${session['flash.message']}">
     <p th:text="${session['flash.message']}" style="color: green;"></p>
-</div>
-		<h1>V-CHAN</h1>
-		<p>*INSERT IMAGE*</p>
 
+</div>
+
+<div th:if="${#authentication != null}">
+    <span>Bienvenido, <span th:text="${#authentication.name}">Usuario</span></span>
+</div>
+
+<h1>V-CHAN</h1>
+<p>*INSERT IMAGE*</p>
 </body>
 </html>
