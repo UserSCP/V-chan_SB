@@ -71,6 +71,25 @@ public class User {
 	public void setLowDate(LocalDate lowDate) {
 		this.lowDate = lowDate;
 	}
+	public User(Long id, String username, String email, String password, Role role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+
+	}
+	public User(String username, String email, String password, Role role) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+	public User() {
+		super();
+	}
 	
 
 }

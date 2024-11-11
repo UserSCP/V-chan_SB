@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <h1>Editar Usuario</h1>
-<form th:action="@{/editUser}" th:object="${user}" method="post">
+<form th:action="@{/users/update/{id}(id=${user.id})}" th:object="${user}" method="post">
 	<label for="username">Username</label> <input type="text" id="username"
 		th:field="*{username}" /> <label for="email">Email</label> <input
 		type="email" id="email" th:field="*{email}" /> <label for="role">Role</label>
 	<select id="role" th:field="*{role}">
 		<option th:each="role : ${roles}" th:value="${role}" th:text="${role}">Role</option>
 	</select>
-
-	<button type="submit">Save</button>
+	<button type="submit">Actualizar</button>
 </form>
 </html>

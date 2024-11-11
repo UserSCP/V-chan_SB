@@ -7,7 +7,6 @@
 				<th>ID</th>
 				<th>Nombre</th>
 				<th>Correo Electrónico</th>
-				<th>clave</th>
 				<th>Role</th>
 				<th>Eliminar</th>
 				<th>Editar</th>
@@ -18,7 +17,6 @@
 				<td th:text="${user.id}"></td>
 				<td th:text="${user.username}"></td>
 				<td th:text="${user.email}"></td>
-				<td th:text="${user.password}"></td>
 				<td th:text="${user.role}"></td>
 				<td>
 					<form th:action="@{/users/delete/{id}(id=${user.id})}"

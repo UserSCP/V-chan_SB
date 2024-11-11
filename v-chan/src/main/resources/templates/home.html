@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div>
-    <h1>V-CHAN</h1>
-    <p>*INSERT IMAGE*</p>
+
+<div th:if="${session['flash.message']}">
+    <p th:text="${session['flash.message']}" style="color: green;"></p>
 </div>
+		<h1>V-CHAN</h1>
+		<p>*INSERT IMAGE*</p>
+
 </body>
 </html>
