@@ -1,5 +1,6 @@
 package com.reichsacht.v_chan.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +19,9 @@ import com.reichsacht.v_chan.component.CustomAccessDeniedHandler;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+	
     private final UserDetailsService userDetailsService;
+    @Autowired
     private CustomAccessDeniedHandler accessDenied;
     public SecurityConfiguration(UserDetailsService userDetailsService) {
 		super();
