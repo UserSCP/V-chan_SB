@@ -12,39 +12,47 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.reichsacht.v_chan.component.CustomAccessDeniedHandler;
+
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
     private final UserDetailsService userDetailsService;
-
+    private CustomAccessDeniedHandler accessDenied;
     public SecurityConfiguration(UserDetailsService userDetailsService) {
 		super();
 		this.userDetailsService = userDetailsService;
 	}
-    @Bean
+    
+
+	@Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .sessionManagement(session -> 
                 session
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)  // Mantener la sesión si es necesario
+                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
             )
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/login", "/register", "/", "/settings/**").permitAll()
+                    .requestMatchers("/login", "/","/register","/settings").permitAll()
                     .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**").permitAll()
                     .requestMatchers("/users/**").hasRole("ADMIN")
+                    .requestMatchers("/test**").hasRole("ADMIN")
                     .anyRequest().authenticated()
-            )
+                    )
+            .exceptionHandling(exceptionHandling ->
+            exceptionHandling.accessDeniedHandler(accessDenied) 
+        )
             .formLogin(formLogin ->
                 formLogin
-                    .loginPage("/login")  // Página de login personalizada
+                    .loginPage("/login")
                     .successHandler((request, response, authentication) -> {
             	        request.getSession().setAttribute("flash.message", "¡Bienvenido, inicio de sesión exitoso!");
             	        response.sendRedirect("/");
             	    })
-                    .defaultSuccessUrl("/", true)  // Redirigir a la página principal después de iniciar sesión
-                    .failureUrl("/login?error=true")  // Si el login falla, redirigir a la página de error
+                    .defaultSuccessUrl("/", true)  
+                    .failureUrl("/login?error=true")  
                     .permitAll()
             )
             .logout(logout -> 

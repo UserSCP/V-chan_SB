@@ -4,30 +4,39 @@
 	<div th:if="${param.exito}">
 		<p>Registro con exito!!!:)</p>
 	</div>
-<div align="center">
-    <div class="containerForm">
-        <h3>Signup</h3>
-	<form th:action="@{/register}" method="POST" th:object="${user}">
-            <div style="margin-bottom:20px;">
-                <label for="login__username">Username</label>
-                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input inputTextForm" placeholder="Nombre de usuario" th:field="*{username}" required autofocus="autofocus" required>
-            </div>
-            <div style="margin-bottom:20px;">
-                <label for="login__username">E-mail</label>
-                <input autocomplete="username" id="login__username" type="text" name="email" class="form__input inputTextForm" placeholder="E-mail del usuario" th:field="*{email}" required>
-            </div>
-            <div style="margin-bottom:20px;">
-                <label for="login__password">Password</label>
-                <input id="login__password" type="password" name="password" class="form__input inputTextForm" placeholder="Contraseña" th:field="*{password}" required>
-            </div>
-            <div style="margin-top:10px;">
-                <input type="submit" value="Iniciar Sesion" class="inputSubmitForm">
-            </div>
-        </form>
-        <p class="text--center">¿Ya tienes una cuenta? <a th:href="@{/login}" class="links">Inicia sesión</a>
+	<div align="center">
+		<div class="containerForm">
+			<h3>Signup</h3>
+			<form th:action="@{/register}" method="POST" th:object="${user}">
+				<div style="margin-bottom: 20px;">
+					<label for="login__username">Username</label> <input
+						autocomplete="username" id="login__username" type="text"
+						name="username" class="form__input inputTextForm"
+						placeholder="Nombre de usuario" th:field="*{username}"
+						autofocus="autofocus" required>
+				</div>
+				<div style="margin-bottom: 20px;">
+					<label for="login__username">E-mail</label> <input
+						autocomplete="username" id="login__username" type="text"
+						name="email" class="form__input inputTextForm"
+						placeholder="E-mail del usuario" th:field="*{email}" required>
+				</div>
+				<div style="margin-bottom: 20px;">
+					<label for="login__password">Password</label> <input
+						id="login__password" type="password" name="password"
+						class="form__input inputTextForm" placeholder="Contraseña"
+						th:field="*{password}" required>
+				</div>
+				<div style="margin-top: 10px;">
+					<input type="submit" value="Registrarse" class="inputSubmitForm">
+				</div>
+			</form>
+			<p class="text--center">
+				¿Ya tienes una cuenta? <a th:href="@{/login}" class="links">Inicia
+					sesión</a>
 
-        </p>
-    </div>
-</div>
+			</p>
+		</div>
+	</div>
 </body>
 </html>

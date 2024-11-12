@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <body>
-<div th:if="${#authentication != null}">
-    <span class="section2">Hola, <span th:text="${#authentication.principal.username}"></span></span>
-    <a class="section2" th:href="@{/logout}"><b>LogOut</b></a>
-</div>
-<div th:if="${#authentication == null}">
-    <a class="section2" th:href="@{/register}"><b>Register</b></a>
-    <a class="section2" th:href="@{/login}"><b>LogIn</b></a>
-</div>
+    <!-- Si el usuario está autenticado -->
+    <div sec:authorize="isAuthenticated()">
+        <span class="section2">Hola, <span sec:authentication="principal.username"></span></span>
+        <a class="section2" th:href="@{/logout}"><b>LogOut</b></a>
+    </div>
+
+    <!-- Si el usuario NO está autenticado -->
+    <div sec:authorize="isAnonymous()">
+        <a class="section2" th:href="@{/register}"><b>Register</b></a>
+        <a class="section2" th:href="@{/login}"><b>LogIn</b></a>
+    </div>
 </body>
 </html>

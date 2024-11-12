@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>V-chan</title>
-<link rel="icon" th:href="@{/images/org_3.png}" sizes="32x32">
-<link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
-<link rel="stylesheet" href="/css/font.css">
+  <title>V-chan</title>
+  <link rel="icon" th:href="@{/images/org_3.png}" sizes="32x32">
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+  <link rel="stylesheet" href="/css/font.css">
 </head>
 <body>
-<header th:insert="~{fragments/navbar :: navbar}"></header>
-<header th:insert="~{fragments/navsub :: navsub}"></header>
+  <div class="main-container">
+    <header th:insert="~{fragments/navbar :: navbar}"></header>
+    <header th:insert="~{fragments/navsub :: navsub}"></header>
 
-	<main>
-		<section th:replace="~{${content}}"></section>
-	</main>
-	<footer th:insert="~{fragments/footer :: footer}"></footer>
+    <main>
+      <section class="content" th:replace="~{${content}}"></section>
+    </main>
+
+    <footer class="footer" th:insert="~{fragments/footer :: footer}"></footer>
+  </div>
 </body>
 </html>

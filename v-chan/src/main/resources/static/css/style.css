@@ -1,20 +1,43 @@
-@charset "UTF-8";
-body{
-    font-family: 'AnimeAce', sans-serif;
-	margin:auto;
+/* Asegúrate de que el cuerpo y el html ocupen toda la altura de la pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family:AnimeAce;
 }
+
+/* Contenedor principal que envuelve el contenido */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Hace que ocupe toda la altura disponible */
+}
+
+/* El contenido principal que debe tomar el espacio restante */
+.content {
+  flex: 1; /* Toma todo el espacio restante */
+}
+
+/* Estilos del footer */
 .footer {
+bottom:0;
+	right:0;
+
   text-align: center;
   color: #eaecee;
   background-color: #212121;
   margin: 0;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
 }
+
+.footer h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
 .navtop{
 	top:0;
-	left:0;
+	left:0;	
 	background-color: #212121;
   	color: white;
   	width: 100%;

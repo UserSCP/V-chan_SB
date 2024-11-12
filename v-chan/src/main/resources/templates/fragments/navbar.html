@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 	<div th:fragment="navbar">
 		<div class="navtop">
 			<div class="navitems">
@@ -19,12 +19,16 @@
 				<div class="navlink">
 					<a class="section2" href="/" th:href="@{/}"><span class="gumi" >5 </span><b>Community</b></a>
 				</div>
-				<div class="navlink">
-					<a class="section2" href="/test" th:href="@{/test}"><span class="gumi" >j </span><b>Test</b></a>
-				</div>
-				<div class="navlink">
-					<a class="section2" href="/users" th:href="@{/users/}"><span class="gumi" >E </span><b>Users</b></a>
-				</div>
+			<div class="navlink">
+    <a class="section2" href="/test" th:href="@{/test}" sec:authorize="hasRole('ADMIN')">
+        <span class="gumi">j</span><b>Test</b>
+    </a>
+</div>
+<div class="navlink">
+    <a class="section2" href="/users" th:href="@{/users/}" sec:authorize="hasRole('ADMIN')">
+        <span class="gumi">E</span><b>Users</b>
+    </a>
+</div>
 
 			</div>
 		</div>

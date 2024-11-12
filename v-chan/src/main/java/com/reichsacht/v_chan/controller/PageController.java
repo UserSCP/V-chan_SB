@@ -26,5 +26,11 @@ public class PageController {
         m.addAttribute("title", "Test Zone"); 
 		return "index";
 	}
+	@GetMapping("/blocked")
+	public String showBlockedPage(Model m) {
+		m.addAttribute("content", "blocked");
+		m.addAttribute("title", "Blocked Page");
+		return "index";
+	}
 
 }
