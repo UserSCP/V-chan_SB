@@ -36,7 +36,7 @@ public class UserRegisterController {
 
 	@GetMapping
 	public String showFromRegister(Model m) {
-		m.addAttribute("content", "register");
+		m.addAttribute("content", "auth/register");
 		m.addAttribute("title", "Register");
 		return "index";
 	}
@@ -51,7 +51,7 @@ public class UserRegisterController {
 	    session.setAttribute("username", userRegisterDTO.getUsername()); // Guardar el nombre de usuario
 	    session.setAttribute("password", userRegisterDTO.getPassword()); // Guardar la contraseña
 	    
-	    m.addAttribute("content", "confirmEmail");
+	    m.addAttribute("content", "auth/confirmEmail");
 	    m.addAttribute("title", "Email Confirmation");
 	    return "index";
 	}

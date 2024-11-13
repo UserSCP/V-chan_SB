@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserLoginController {
 	@GetMapping("/login")
     public String showLoginPage(Model m) {
-	     m.addAttribute("content", "login");
+	     m.addAttribute("content", "auth/login");
 	     m.addAttribute("title", "Log In"); 
         return "index";  
     }

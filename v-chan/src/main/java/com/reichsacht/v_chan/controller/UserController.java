@@ -21,7 +21,7 @@ public class UserController {
 	 @GetMapping("/")
 	 public String getAllUsers(Model m) {
 		 m.addAttribute("users", service.getAllUsers());
-	     m.addAttribute("content", "userTable");
+	     m.addAttribute("content", "users/userTable");
 	     m.addAttribute("title", "User Table"); 
 		 return "index";
 	 }
@@ -34,7 +34,7 @@ public class UserController {
 	 public String showUserForm(Model m) {
 		 m.addAttribute("user", new User());
 		 m.addAttribute("roleUser", Role.values());
-	     m.addAttribute("content", "userCreate");
+	     m.addAttribute("content", "users/userCreate");
 	     m.addAttribute("title", "Form User"); 
 		 return "index";
 	 }
@@ -49,7 +49,7 @@ public class UserController {
 	     if (user.isPresent()) {
 	         m.addAttribute("user", user.get());
 	         m.addAttribute("roles", Role.values());
-	         m.addAttribute("content", "userEdit");
+	         m.addAttribute("content", "users/userEdit");
 	         m.addAttribute("title", "Form User"); 
 	         return "index";
 	     } else {
