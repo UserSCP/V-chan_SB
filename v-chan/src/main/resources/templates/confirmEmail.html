@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div align="center">
+        <h3>Verificación de correo electrónico</h3>
+        <form th:action="@{/register/verify-email}" method="POST">
+            <div>
+                <label for="verificationCode">Código de verificación</label>
+                <input type="text" id="verificationCode" name="verificationCode" required />
+            </div>
+            <input type="hidden" name="email" th:value="${email}" />
+            <input type="hidden" name="username" th:value="${username}" />
+<input type="hidden" name="password" th:value="${password}" />
+            
+            <div style="margin-top: 10px;">
+                <input type="submit" value="Verificar" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

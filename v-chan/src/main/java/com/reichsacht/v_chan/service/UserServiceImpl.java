@@ -1,8 +1,11 @@
 package com.reichsacht.v_chan.service;
 
+import java.time.LocalDate;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.reichsacht.v_chan.dto.UserRegisterDTO;
 import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.model.User;
@@ -20,16 +23,16 @@ public class UserServiceImpl implements UserService{
 		this.repo = repo;
 		this.passwordEncoder = passwordEncoder;
 	}
-
-
 	@Override
-	public User guardar(UserRegisterDTO userRegisteDTO) {
-		String encodedPassword = passwordEncoder.encode(userRegisteDTO.getPassword());
-		User user = new User(userRegisteDTO.getUsername(), userRegisteDTO.getEmail(), encodedPassword, Role.USER);
-		return repo.save(user);
+	public User guardar(UserRegisterDTO userRegisterDTO) {
+	    if (userRegisterDTO.getPassword() == null || userRegisterDTO.getPassword().isEmpty()) {
+	        throw new IllegalArgumentException("La contraseña no puede ser nula o vacía.");
+	    }
+
+	    String encodedPassword = passwordEncoder.encode(userRegisterDTO.getPassword());
+	    LocalDate highDate = null;
+	    User user = new User(userRegisterDTO.getUsername(), userRegisterDTO.getEmail(), encodedPassword, Role.USER, LocalDate.now(), highDate);
+	    return repo.save(user);
 	}
-	
-	
-	
 
 }

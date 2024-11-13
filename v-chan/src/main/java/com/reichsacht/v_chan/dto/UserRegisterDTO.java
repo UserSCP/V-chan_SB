@@ -1,5 +1,7 @@
 package com.reichsacht.v_chan.dto;
 
+import java.time.LocalDate;
+
 import com.reichsacht.v_chan.model.Role;
 
 
@@ -9,6 +11,8 @@ public class UserRegisterDTO {
 	private String email;
 	private String password;
 	private Role role;
+	private LocalDate high_Date;
+	private LocalDate low_date;
 	public Long getId() {
 		return id;
 	}
@@ -39,13 +43,28 @@ public class UserRegisterDTO {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	public UserRegisterDTO(Long id, String username, String email, String password, Role role) {
+	public LocalDate getHigh_Date() {
+		return high_Date;
+	}
+	public void setHigh_Date(LocalDate high_Date) {
+		this.high_Date = high_Date;
+	}
+	public LocalDate getLow_date() {
+		return low_date;
+	}
+	public void setLow_date(LocalDate low_date) {
+		this.low_date = low_date;
+	}
+	public UserRegisterDTO(Long id, String username, String email, String password, Role role, LocalDate high_Date,
+			LocalDate low_date) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.high_Date = high_Date;
+		this.low_date = null;
 	}
 	public UserRegisterDTO(String username) {
 		super();
@@ -53,6 +72,16 @@ public class UserRegisterDTO {
 	}
 	public UserRegisterDTO() {
 		super();
+	}
+	public UserRegisterDTO(String username, String email, String password, Role role, LocalDate high_Date,
+			LocalDate low_date) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.high_Date = high_Date;
+		this.low_date = low_date;
 	}
 	
 }
