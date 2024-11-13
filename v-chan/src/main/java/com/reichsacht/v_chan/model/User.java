@@ -24,85 +24,35 @@ public class User {
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	private String profile_photo;
 	@CreationTimestamp
 	@Column(name = "high_date", nullable = false)
 	private LocalDate highDate;
 	@Column(name = "low_date")
 	private LocalDate lowDate;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
+	public User(Long id, String username, String email, String password, Role role, String profile_photo,
+			LocalDate highDate, LocalDate lowDate) {
+		super();
 		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
 		this.role = role;
-	}
-
-	public LocalDate getHighDate() {
-		return highDate;
-	}
-
-	public void setHighDate(LocalDate highDate) {
+		this.profile_photo = profile_photo;
 		this.highDate = highDate;
-	}
-
-	public LocalDate getLowDate() {
-		return lowDate;
-	}
-
-	public void setLowDate(LocalDate lowDate) {
 		this.lowDate = lowDate;
 	}
-
-	public User(Long id, String username, String email, String password, Role role) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.role = role;
-
-	}
-
-
-	public User(String username, String email, String password, Role role, LocalDate highDate, LocalDate lowDate) {
+	
+	public User(String username, String email, String password, Role role, String profile_photo, LocalDate highDate,
+			LocalDate lowDate) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.profile_photo = profile_photo;
 		this.highDate = highDate;
 		this.lowDate = lowDate;
 	}
@@ -110,5 +60,55 @@ public class User {
 	public User() {
 		super();
 	}
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getProfile_photo() {
+		return profile_photo;
+	}
+	public void setProfile_photo(String profile_photo) {
+		this.profile_photo = profile_photo;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public LocalDate getHighDate() {
+		return highDate;
+	}
+	public void setHighDate(LocalDate highDate) {
+		this.highDate = highDate;
+	}
+	public LocalDate getLowDate() {
+		return lowDate;
+	}
+	public void setLowDate(LocalDate lowDate) {
+		this.lowDate = lowDate;
+	}
+
 
 }

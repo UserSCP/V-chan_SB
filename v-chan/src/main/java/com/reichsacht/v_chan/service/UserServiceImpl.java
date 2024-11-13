@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService{
 
 	    String encodedPassword = passwordEncoder.encode(userRegisterDTO.getPassword());
 	    LocalDate highDate = null;
-	    User user = new User(userRegisterDTO.getUsername(), userRegisterDTO.getEmail(), encodedPassword, Role.USER, LocalDate.now(), highDate);
+	    String foto ="default1.png";
+	    User user = new User(userRegisterDTO.getUsername(), userRegisterDTO.getEmail(), encodedPassword, Role.USER,foto ,LocalDate.now(), highDate);
 	    return repo.save(user);
 	}
 

@@ -11,8 +11,10 @@ public class UserRegisterDTO {
 	private String email;
 	private String password;
 	private Role role;
+	private String profile_photo;
 	private LocalDate high_Date;
 	private LocalDate low_date;
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,6 +45,12 @@ public class UserRegisterDTO {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	public String getProfile_photo() {
+		return profile_photo;
+	}
+	public void setProfile_photo(String profile_photo) {
+		this.profile_photo = profile_photo;
+	}
 	public LocalDate getHigh_Date() {
 		return high_Date;
 	}
@@ -55,7 +63,7 @@ public class UserRegisterDTO {
 	public void setLow_date(LocalDate low_date) {
 		this.low_date = low_date;
 	}
-	public UserRegisterDTO(Long id, String username, String email, String password, Role role, LocalDate high_Date,
+	public UserRegisterDTO(Long id, String username, String email, String password, Role role,String profile_photo , LocalDate high_Date,
 			LocalDate low_date) {
 		super();
 		this.id = id;
@@ -63,6 +71,7 @@ public class UserRegisterDTO {
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.profile_photo= profile_photo;
 		this.high_Date = high_Date;
 		this.low_date = null;
 	}
@@ -73,13 +82,14 @@ public class UserRegisterDTO {
 	public UserRegisterDTO() {
 		super();
 	}
-	public UserRegisterDTO(String username, String email, String password, Role role, LocalDate high_Date,
+	public UserRegisterDTO(String username, String email, String password, Role role, String profile_photo,LocalDate high_Date,
 			LocalDate low_date) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.profile_photo= profile_photo;
 		this.high_Date = high_Date;
 		this.low_date = low_date;
 	}

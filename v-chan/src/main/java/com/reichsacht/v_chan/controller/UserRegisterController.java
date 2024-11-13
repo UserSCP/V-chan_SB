@@ -68,7 +68,7 @@ public class UserRegisterController {
 		    LocalDate highDate = null;
 
 	        
-	        UserRegisterDTO userRegisterDTO = new UserRegisterDTO(username, email1, password,Role.USER,LocalDate.now(),highDate);
+	        UserRegisterDTO userRegisterDTO = new UserRegisterDTO(username, email1, password,Role.USER,"default1.png",LocalDate.now(),highDate);
 	        userService.guardar(userRegisterDTO); // Llamar al servicio para guardar el usuario
 	        
 	        session.removeAttribute("verificationCode");
