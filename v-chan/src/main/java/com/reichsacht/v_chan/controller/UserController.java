@@ -13,16 +13,19 @@ import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.model.User;
 import com.reichsacht.v_chan.service.UserServices;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RequestMapping("/users")
 @Controller
 public class UserController {
 	 @Autowired
 	 private UserServices service;
 	 @GetMapping("/")
-	 public String getAllUsers(Model m) {
+	 public String getAllUsers(Model m, HttpServletRequest request) {
 		 m.addAttribute("users", service.getAllUsers());
 	     m.addAttribute("content", "users/userTable");
 	     m.addAttribute("title", "User Table"); 
+	        m.addAttribute("requestURI", request.getRequestURI());
 		 return "index";
 	 }
 	 @GetMapping("/delete/{id}")

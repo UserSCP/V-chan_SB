@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-	<div th:fragment="navbar">
-		<div class="navtop">
-			<div class="navitems">
-				<div class="navlink">
-					<a href="/" th:href="@{/}"><img class="icon" width="100"
-						height="90" th:src="@{/images/org_3.png}" alt="Logo de la empresa"></a>
-				</div>
-				<div class="navlink">
-					<a class="section2" th:href="@{/settings}"><span class="gumi">D </span><b>Settings</b></a>
-				</div>
-				<div class="navlink">
-					<a class="section2" href="/" th:href="@{/}"><span class="gumi">c </span><b>Art</b></a>
-				</div>
-				<div class="navlink">
-					<a class="section2" href="/" th:href="@{/}"><span class="gumi">4 </span><b>Forum</b></a>
-				</div>
-				<div class="navlink">
-					<a class="section2" href="/" th:href="@{/}"><span class="gumi" >5 </span><b>Community</b></a>
-				</div>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div th:fragment="navbar">
+	<div class="navtop">
+		<div class="navitems">
 			<div class="navlink">
-    <a class="section2" href="/test" th:href="@{/test}" sec:authorize="hasRole('ADMIN')">
-        <span class="gumi">j</span><b>Test</b>
-    </a>
-</div>
-<div class="navlink">
-    <a class="section2" href="/users" th:href="@{/users/}" sec:authorize="hasRole('ADMIN')">
-        <span class="gumi">E</span><b>Users</b>
-    </a>
-</div>
-
+				<a href="/" th:href="@{/}"><img class="icon" width="100"
+					height="90" th:src="@{/images/org_3.png}" alt="Logo de la empresa"></a>
 			</div>
+			<div class="navlink">
+				<a class="section2" href="/settings"
+					th:classappend="${requestURI == '/settings' ? 'active' : ''}"><span
+					class="gumi">D </span><b>Settings</b></a>
+			</div>
+			<div class="navlink">
+				<a class="section2" href="/" th:href="@{/}"><span class="gumi">c
+				</span><b>Art</b></a>
+			</div>
+			<div class="navlink">
+				<a class="section2" href="/" th:href="@{/}"><span class="gumi">4
+				</span><b>Forum</b></a>
+			</div>
+			<div class="navlink">
+				<a class="section2" href="/" sec:authorize="isAuthenticated()" th:href="@{/}"><span class="gumi">5
+				</span><b>Community</b></a>
+			</div>
+			<div class="navlink">
+				<a class="section2" href="/test"
+					th:classappend="${requestURI == '/test' ? 'active' : ''}"
+					sec:authorize="hasRole('ADMIN')"> <span class="gumi">j</span><b>Test</b>
+				</a>
+			</div>
+			<div class="navlink">
+				<a class="section2" href="/users/"
+					th:classappend="${requestURI == '/users/' ? 'active' : ''}"
+					sec:authorize="hasRole('ADMIN')"> <span class="gumi">E</span><b>Users</b>
+				</a>
+			</div>
+
 		</div>
 	</div>
+</div>
 
 </html>

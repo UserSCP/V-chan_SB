@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class PageController {
@@ -15,15 +17,18 @@ public class PageController {
         return "index";  
     }
 	@GetMapping("/settings")
-	public String showSettingsPage(Model m) {
+	public String showSettingsPage(Model m, HttpServletRequest request) {
 		m.addAttribute("content", "home/settings");
         m.addAttribute("title", "Settings"); 
+        m.addAttribute("requestURI", request.getRequestURI());
 		return "index";
 	}
 	@GetMapping("/test")
-	public String showTestPage(Model m) {
+	public String showTestPage(Model m , HttpServletRequest request) {
 		m.addAttribute("content", "home/test");
         m.addAttribute("title", "Test Zone"); 
+        m.addAttribute("requestURI", request.getRequestURI());
+
 		return "index";
 	}
 	@GetMapping("/blocked")
