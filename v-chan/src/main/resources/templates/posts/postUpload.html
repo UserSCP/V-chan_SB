@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<h1>Upload your art</h1>
+<form th:action="@{/posts/upload}" th:object="${post}" method="post">
+	<label for="post">Your Post:</label> 
+	<input type="file"
+		id="post" th:field="*{post}" required />
+	<button type="submit">Upload</button>
+</form>
+</html>

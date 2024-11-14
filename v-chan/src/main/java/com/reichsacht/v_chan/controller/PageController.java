@@ -31,6 +31,13 @@ public class PageController {
 
 		return "index";
 	}
+	@GetMapping("/art")
+	public String showArtPage(Model m , HttpServletRequest request) {
+		m.addAttribute("content", "home/art");
+        m.addAttribute("title", "Art"); 
+        m.addAttribute("requestURI", request.getRequestURI());
+		return "index";
+	}
 	@GetMapping("/blocked")
 	public String showBlockedPage(Model m) {
 		m.addAttribute("content", "auth/blocked");

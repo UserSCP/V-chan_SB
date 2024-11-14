@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   font-family:AnimeAce;
 }
-
+/*--fragment--*/
 .main-container {
   display: flex;
   flex-direction: column;
@@ -52,6 +52,8 @@ bottom:0;
     text-decoration: underline;  
     text-underline-offset: 7px;
 }
+/*--fragment-end--*/
+/*--home--*/
 .icon {
   position: relative;
   float: left;

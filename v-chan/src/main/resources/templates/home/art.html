@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<a class="section2" th:href="@{/upload}"><b>Upload</b></a>
+<div>
+	<table>
+		<tbody>
+			<tr th:each="post : ${posts}">
+				<td th:text="${post.id}"></td>
+				<td th:text="${post.post}"></td>
+				
+				<td><a th:href="@{/users/edit/{id}(id=${user.id})}">Editar</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html>

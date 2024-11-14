@@ -14,9 +14,11 @@
 					class="gumi">D </span><b>Settings</b></a>
 			</div>
 			<div class="navlink">
-				<a class="section2" href="/" th:href="@{/}"><span class="gumi">c
-				</span><b>Art</b></a>
+				<a class="section2" href="/art"
+					th:classappend="${requestURI == '/art' ? 'active' : ''}"><span
+					class="gumi">c </span><b>Art</b></a>
 			</div>
+			
 			<div class="navlink">
 				<a class="section2" href="/" th:href="@{/}"><span class="gumi">4
 				</span><b>Forum</b></a>
