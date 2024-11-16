@@ -29,18 +29,17 @@ public class UserServices {
 		repo.deleteById(id);
 	}
 	public User updateUser(Long id, User user) {
-		if(repo.existsById(id)) {
-			user.setId(id);
-			return repo.save(user);
-		}else {
-			throw new RuntimeException("No se encontro el usario");
-		}
+	    return repo.findById(id).map(existingUser -> {
+	        if (user.getUsername() != null) {
+	            existingUser.setUsername(user.getUsername());
+	        }
+	        if (user.getEmail() != null) {
+	            existingUser.setEmail(user.getEmail());
+	        }
+	        if (user.getRole() != null) {
+	            existingUser.setRole(user.getRole());
+	        }
+	        return repo.save(existingUser);
+	    }).orElseThrow(() -> new RuntimeException("No se encontró el usuario con id: " + id));
 	}
-//	public void save(User user) {
-//		
-//		user.setPassword(passwordEncoder.encode(user.getPassword()));
-//		user.setRole(Role.USER);
-//		repo.save(user);
-//	}
-
 }

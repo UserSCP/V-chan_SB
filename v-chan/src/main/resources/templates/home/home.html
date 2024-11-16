@@ -6,22 +6,22 @@
 
 	</div>
 
-	<!-- <div th:if="${#authentication != null}">
+	<div th:if="${#authentication != null}">
 		<span>Bienvenido, <span th:text="${#authentication.name}">Usuario</span></span>
-	</div> -->
-	<div align="center">
-		<div class="container_image">
-			<div class="container-image">
-				<img th:src="@{/images/org_2.png}" class="image">
-			</div>
-		</div>
-		<div class="container_title">
-			<h1 class="h1_home">
-				<b class="ace decaration_home">{</b><b class="HWNAT26 decaration"><span
-					class="title_home">V-Chan</span></b><b class="ace decaration_home">}</b>
-			</h1>
-		</div>
 	</div>
+	<div class="home-container">
+    <div class="image-container">
+        <img th:src="@{/images/org_2.png}" class="image" alt="Background Image">
+    </div>
+    <div class="title-container">
+        <h1 class="title">
+            <b class="brace">{</b>
+            <b class="main-title"><span class="title-text">V-Chan</span></b>
+            <b class="brace">}</b>
+        </h1>
+    </div>
+</div>
+
 	
 </body>
 </html>
