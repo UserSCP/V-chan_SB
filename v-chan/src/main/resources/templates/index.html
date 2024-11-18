@@ -7,15 +7,12 @@
   <link rel="stylesheet" href="/css/font.css">
 </head>
 <body>
-  <div class="main-container">
-    <header th:insert="~{fragments/navbar :: navbar}"></header>
-    <header th:insert="~{fragments/navsub :: navsub}"></header>
-
+    <nav th:insert="~{fragments/navbar :: navbar}"></nav>
+    <nav th:insert="~{fragments/navsub :: navsub}"></nav>
     <main>
-      <section class="content" th:replace="~{${content}}"></section>
+      <section  th:replace="~{${content}}"></section>
     </main>
-
     <footer class="footer" th:insert="~{fragments/footer :: footer}"></footer>
-  </div>
+    <script th:src="@{/js/chat.js}"></script>
 </body>
 </html>

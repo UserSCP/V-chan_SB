@@ -42,6 +42,7 @@ public class SecurityConfiguration {
                     .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**").permitAll()
                     .requestMatchers("/users/**").hasRole("ADMIN")
                     .requestMatchers("/test**").hasRole("ADMIN")
+                    .requestMatchers("/chat").authenticated()
                     .anyRequest().authenticated()
                     )
             .exceptionHandling(exceptionHandling ->

@@ -1,12 +1,17 @@
 /*--- Beginning of Global Style---*/
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family:AnimeAce;
+body{
+	display:flex;
+	flex-direction:column;
+	min-height:100vh;
+	margin: 0;
+    font-family:AnimeAce;
 }
 /*---End of Global Style---*/
 
 /*--- Beginning of Fragment Style---*/
+main{
+	flex:1;
+}
 .footer {
 bottom:0;
 	right:0;
@@ -69,14 +74,6 @@ bottom:0;
   background: #aaa;
   color: #fff;
   padding: 10px 15px;
-}
-.main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%; 
-}
-.content {
-  flex: 1; 
 }
 /*--- End of Fragment Style---*/
 
