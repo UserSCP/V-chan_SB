@@ -17,7 +17,9 @@
 							sec:authorize="hasRole('ADMIN')">🜲</span>
 					</h2>
 
-					<p>Administrador</p>
+					<p sec:authorize="hasRole('ADMIN')">Administrador</p>
+					<p sec:authorize="hasRole('USER')">Usuario</p>
+
 					<p>laydo@gmail.com</p>
 					<p>Cuenta publica</p>
 					<br>
