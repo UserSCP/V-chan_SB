@@ -9,6 +9,7 @@ public class UserLoginController {
     public String showLoginPage(Model m) {
 	     m.addAttribute("content", "auth/login");
 	     m.addAttribute("title", "Log In"); 
+	     
         return "index";  
     }
 }

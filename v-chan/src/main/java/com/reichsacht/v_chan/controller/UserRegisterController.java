@@ -49,7 +49,7 @@ public class UserRegisterController {
 	    session.setAttribute("verificationCode", verificationCode);
 	    session.setAttribute("email", userRegisterDTO.getEmail());
 	    session.setAttribute("username", userRegisterDTO.getUsername()); // Guardar el nombre de usuario
-	    session.setAttribute("password", userRegisterDTO.getPassword()); // Guardar la contraseña
+	    session.setAttribute("password", userRegisterDTO.getPassword()); 
 	    
 	    m.addAttribute("content", "auth/confirmEmail");
 	    m.addAttribute("title", "Email Confirmation");

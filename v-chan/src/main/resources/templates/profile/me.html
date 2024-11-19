@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <body>
 	<section class="profile-section">
 		<div class="profile-container">
-			<div class="fix">foto</div>
-<div class="info-user">
-    <div>
-        <h2>Usuario <span>🜲</span></h2>
-        <p>Administrador</p>
-        <p>laydo@gmail.com</p>
-        <p>Cuenta publica</p>
-        <button>Editar</button>
-        <button>Seguir</button>
-    </div>
-    <section>
-        <div>
-            <p>0</p>
-            <p>Seguidores</p>
-        </div>
-        <div>
-            <p>0</p>
-            <p>Seguidos</p>
-        </div>
-    </section>
-</div>
+			<div class="foto-user">
+				<div class="background-image">
+					<img class="overlay-image" src="/images/users/default1.png"
+						alt="Foto perfil" width="200" height="200">
+				</div>
+			</div>
+			<div class="info-user">
+				<div>
+					<h2>
+						<span th:text="${#authentication.name}">Usuario</span> <span
+							sec:authorize="hasRole('ADMIN')">🜲</span>
+					</h2>
+
+					<p>Administrador</p>
+					<p>laydo@gmail.com</p>
+					<p>Cuenta publica</p>
+					<br>
+					<button class="btn-editar">Editar</button>
+					<button class="btn-seguir">Seguir</button>
+				</div>
+				<section>
+					<div>
+						<p>0</p>
+						<p>Seguidores</p>
+					</div>
+					<div>
+						<p>0</p>
+						<p>Seguidos</p>
+					</div>
+				</section>
+			</div>
 			<div class="fix">Notificaciones</div>
 			<div class="post-container">
 				<div class="fix">mis arts</div>
