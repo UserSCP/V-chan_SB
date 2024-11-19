@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <div th:if="${param.error}">
-        <p style="color: red;">Usuario o contraseña incorrectos. Inténtalo de nuevo.</p>
-        
-    </div>
-    <div th:if="${param.logout}">
-        <p>Sesión cerrada correctamente.</p>
-    </div>
-        <div align="center">
-    <div class="containerForm">
-        <h3 class="h3_form">Log in</h3>
-    <form action="#" th:action="@{/login}" method="post">
-            <div>
-                <label for="login_username"> Username </label>
-                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input inputTextForm" placeholder="Nombre de usuario" required>
-            </div>
-            <div style="margin-top:20px; margin-bottom:20px;">
-                <label for="login__password">Password</label>
-                <input id="login__password" type="password" name="password" class="form__input inputTextForm" placeholder="Contraseña" required>
-            </div>
-            <div style="font-family:AnimeAce; margin-bottom:10px;">
-                <input type="checkbox" name="cookie"> Mantener sesión iniciada
-            </div>    
-            <div>
-                <input type="submit" value="Iniciar Sesion" class="inputSubmitForm">
-            </div>
-        </form>
-             <p>¿No tenes cuenta?, <a th:href="@{/register}" class="links">Registrate</a></p>
-     
-    </div>
-</div>
+	<div th:if="${param.error}">
+		<p style="color: red;">Usuario o contraseña incorrectos. Inténtalo
+			de nuevo.</p>
+
+	</div>
+	<div th:if="${param.logout}">
+		<p>Sesión cerrada correctamente.</p>
+	</div>
+		<div class="containerForm">
+			<h3 class="h3_form">Log in</h3>
+			<form action="#" th:action="@{/login}" method="post">
+				<div>
+					<label for="login_username"> Username </label> <input
+						autocomplete="username" id="login__username" type="text"
+						name="username" class="form__input inputTextForm"
+						placeholder="Nombre de usuario" required>
+				</div>
+				<div style="margin-top: 20px; margin-bottom: 20px;">
+					<label for="login__password">Password</label> <input
+						id="login__password" type="password" name="password"
+						class="form__input inputTextForm" placeholder="Contraseña"
+						required>
+				</div>
+				<div style="font-family: AnimeAce; margin-bottom: 10px;">
+					<input type="checkbox" name="cookie"> Mantener sesión
+					iniciada
+				</div>
+				<div>
+					<input type="submit" value="Iniciar Sesion" class="inputSubmitForm">
+				</div>
+			</form>
+			<p>
+				¿No tenes cuenta?, <a th:href="@{/register}" class="links">Registrate</a>
+			</p>
+
+		</div>
 </body>
 </html>

@@ -1,180 +1,310 @@
 /*--- Beginning of Global Style---*/
-body{
-	display:flex;
-	flex-direction:column;
-	min-height:100vh;
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	margin: 0;
-    font-family:AnimeAce;
+	font-family: AnimeAce;
 }
+
+.links {
+	color: #212121;
+	text-decoration: none;
+}
+
 /*---End of Global Style---*/
 
 /*--- Beginning of Fragment Style---*/
-main{
-	flex:1;
+main {
+	flex: 1;
 }
-.footer {
-bottom:0;
-	right:0;
 
-  text-align: center;
-  color: #eaecee;
-  background-color: #212121;
-  margin: 0;
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.footer h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-.navtop{
-	top:0;
-	left:0;	
+.footer {
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	color: #eaecee;
 	background-color: #212121;
-  	color: white;
-  	width: 100%;
-  	overflow: hidden;
-  	z-index: 1000;  	
+	margin: 0;
+	padding: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px
+		-12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px
+		12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+.footer h1 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.navtop {
+    top: 0;
+    left: 0;
+    background-color: #212121;
+    color: white;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.navlink a {
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.navlink a:hover {
+    color: white; 
+}
+
+.navlink a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease; 
+}
+
+.navlink a:hover::after,
+.navlink a.active::after {
+    width: 100%; 
+}
+
 .navlink a.active {
-    text-decoration: underline;  
-    text-underline-offset: 7px;
+    color: white; 
 }
-.navlink a.active span,
-.navlink a.active b {
-    text-decoration: underline;  
-    text-underline-offset: 7px;
+
+.navlink a.active span, .navlink a.active b {
+    text-decoration: underline;
+    text-underline-offset: 7px; 
 }
+
+.navlink a.active::after {
+    width: 100%;
+}
+
 .icon {
-  position: relative;
-  float: left;
-  margin: 7px 15px 1px 25px;
-  padding: 0 0 0 0;
+	position: relative;
+	float: left;
+	margin: 7px 15px 1px 25px;
+	padding: 0 0 0 0;
 }
-.navlink .section2{
-	  color: #ffffff;
+
+.navlink .section2 {
+	color: #ffffff;
 }
+
 .section2 {
-  text-decoration: none;
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  margin: 20px 16px 23px 16px;
-  padding: 0;
-  font-size: 20px;
+	text-decoration: none;
+	float: left;
+	display: block;
+	color: #212121;
+	text-align: center;
+	margin: 20px 16px 23px 16px;
+	padding: 0;
+	font-size: 20px;
 }
+
 .navsub {
-  grid-column: 1 / 3;
-  grid-row: 2;
-  margin: 0px;
-  color: #fff;
+	grid-column: 1/3;
+	grid-row: 2;
+	margin: 0px;
+	color: #fff;
 }
+
 .subnavitems {
-  background: #aaa;
-  color: #fff;
-  padding: 10px 15px;
+	background: #aaa;
+	color: #fff;
+	padding: 10px 15px;
 }
 /*--- End of Fragment Style---*/
 
 /*--- Beginning of From Style---*/
-.containerForm{
-	width: 25%;
-    padding: 2%;
-    margin: 25px 0px 25px 0px;
-    background: #f8f9f9;
-    border: 5px solid #212121;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.containerForm {
+	text-align: center;
+	justify-self: center;
+	width: clamp(360px, 75%, 400px);
+	padding: 2%;
+	margin: 25px 0px 25px 0px;
+	background: #f8f9f9;
+	border: 5px solid #212121;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
 }
-.inputSubmitForm{
-    width: 97%;
-    padding:3%;
-    font-family: AnimeAce;
-    background: #212121;
-    color: #fff;
-    border: 3px solid #212121;
-    cursor: pointer;
+
+.inputSubmitForm {
+	width: 97%;
+	padding: 3%;
+	font-family: AnimeAce;
+	background: #212121;
+	color: #fff;
+	border: 3px solid #212121;
+	cursor: pointer;
 }
-.inputTextForm{
-    width: 90%;
-    padding:3%;
-    font-family: AnimeAce;
-    color: #212121;
-    border: 3px solid #212121;
-    outline: none;
-    transition: box-shadow 0.3s ease;
+
+.inputTextForm {
+	width: 90%;
+	padding: 3%;
+	font-family: AnimeAce;
+	color: #212121;
+	border: 3px solid #212121;
+	outline: none;
+	transition: box-shadow 0.3s ease;
 }
-.inputTextForm:focus{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+.inputTextForm:focus {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-label{
-    font-size: 18px;
-    font-family: AnimeAce;
-    color: #212121;
-    margin-bottom: 0.5%;
+
+label {
+	font-size: 18px;
+	font-family: AnimeAce;
+	color: #212121;
+	margin-bottom: 0.5%;
 }
-.h3_form{
-    color: #212121;
-    font-size: 50px;
-    font-family: AnimeAce;
-    margin-top: 10px;
-    margin-bottom: 25px;
+
+.h3_form {
+	color: #212121;
+	font-size: 50px;
+	font-family: AnimeAce;
+	margin-top: 10px;
+	margin-bottom: 25px;
 }
-p{
-    color: #212121;
-    font-family: AnimeAce;
+
+p {
+	color: #212121;
+	font-family: AnimeAce;
 }
 /*--- End of From Style---*/
 
+/*--- Beginning of Home Style---*/
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 100%;
 }
 
 .image-container {
-    position: relative;
+	position: relative;
 }
 
 .image {
-    width: 100%;
-    opacity: 0.7;
-    filter: drop-shadow(8px 8px 10px gray);
+	width: 100%;
+	opacity: 0.7;
+	filter: drop-shadow(8px 8px 10px gray);
 }
 
 .title-container {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: 100%;
 }
 
 .title {
-    font-size: 50px;
-    user-select: none;
+	font-size: 50px;
+	user-select: none;
 }
 
 .brace {
-    font-size: 5rem;
-    color: #212121;
+	font-size: 5rem;
+	color: #212121;
 }
 
 .main-title {
-    font-size: 7rem;
+	font-size: 7rem;
 }
 
 .title-text {
-    text-decoration: none;
-    color: #212121;
+	text-decoration: none;
+	color: #212121;
+}
+/*--- End of Home Style---*/
+
+/*--- Beginning of Community Style---*/
+.chat-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
 }
 
-.links{
-	color:#212121; text-decoration:none;
+.chat-messages {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	height: 400px;
+	overflow-y: auto;
+	padding: 10px;
+	background-color: white;
+	width: 100%;
+	box-sizing: border-box;
+	border: 3px solid #212121;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.links{
-	color:#212121; text-decoration:none;
+
+.chat-input {
+	align-items: center;
+	width: 100%;
+	gap: 5px;
+	padding: 10px 0;
+	width: 100%;
 }
+
+#sendMessageBtn {
+	padding: 8px 12px;
+	margin-top: 5px;
+	cursor: pointer;
+	border: 3px solid #212121;
+	background-color: #212121;
+	color: white;
+}
+
+#messageInput {
+	background-color: white;
+	width: 100%;
+	padding: 10px;
+	resize: none;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 3px solid #212121;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.system-message {
+	font-style: italic;
+	color: gray;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.sender-message {
+	color: #212121;
+	padding: 10px;
+	border-radius: 8px 8px 0 8px;
+	margin: 5px 0;
+	align-self: flex-end;
+	border: 3px solid #212121;
+}
+
+.receiver-message {
+	color: #212121;
+	background-color:#cccccc;
+	padding: 10px;
+	border: 3px solid #212121;
+	border-radius: 8px 8px 8px 0;
+	margin: 5px 0;
+	align-self: flex-start;
+}
+/*--- End of Community Style---*/
