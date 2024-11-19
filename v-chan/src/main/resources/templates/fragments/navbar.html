@@ -20,6 +20,9 @@
                 <a class="section2" href="/chat" th:href="@{/chat/community}" sec:authorize="isAuthenticated()" th:classappend="${requestURI == '/chat/community' ? 'active' : ''}"><span class="gumi">5</span><b>Community</b></a>
             </div>
             <div class="navlink">
+                <a class="section2" href="/profile/me" th:classappend="${requestURI == '/profile/me' ? 'active' : ''}"><span class="gumi">D </span><b>My Profile</b></a>
+            </div>
+            <div class="navlink">
                 <a class="section2" href="/test" th:classappend="${requestURI == '/test' ? 'active' : ''}" sec:authorize="hasRole('ADMIN')"><span class="gumi">j</span><b>Test</b></a>
             </div>
             <div class="navlink">

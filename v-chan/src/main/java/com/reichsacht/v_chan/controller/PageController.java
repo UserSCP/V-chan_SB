@@ -44,5 +44,11 @@ public class PageController {
 		m.addAttribute("title", "Blocked Page");
 		return "index";
 	}
+	@GetMapping("/profile/me")
+	public String showMyProfilePage(Model m) {
+		m.addAttribute("content", "profile/me");
+		m.addAttribute("title", "My Profile");
+		return "index";
+	}
 
 }
