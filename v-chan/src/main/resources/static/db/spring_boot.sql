@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2024 a las 02:41:58
+-- Tiempo de generación: 20-11-2024 a las 21:05:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -64,9 +64,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `profile_photo`, `high_date`, `low_date`) VALUES
-(14, 'si', 'test@gmail.com', '', 'USER', '', '0000-00-00', NULL),
-(16, 'eve', 'eli2014eve@gmail.com', '$2a$10$tvmpHdcx8UhMC4ZwRDz3dujPksLa6dHThvmjhUNLcgjNx0H2V5FD2', 'ADMIN', 'default1.png', '2024-11-13', NULL),
-(18, 'reichsacht', 'rechtenbann@gmail.com', '$2a$10$NPKbvN/TI6s6buY7HruGTejHkEFFQ//14XZOb7SEJ10TY1/oRG4YK', 'ADMIN', 'default1.png', '2024-11-13', NULL);
+(18, 'reichsacht', 'rechtenbann@gmail.com', '$2a$10$NPKbvN/TI6s6buY7HruGTejHkEFFQ//14XZOb7SEJ10TY1/oRG4YK', 'ADMIN', 'default1.png', '2024-11-13', NULL),
+(22, 'admin', 'sebastian.pardo.scp@gmail.com', '$2a$10$inkTrCleFK7PrSBkrqi2zOF81/EywXqfhAfZKZ6NjDsUFsdxE.QHm', 'ADMIN', 'default1.png', '2024-11-16', NULL),
+(23, 'test', 'test0243156@gmail.com', '$2a$10$El6akH00PtHkP.kCO..rQu9sze13/nLd7Cb/fmKcWwprt65hBcqN6', 'USER', '4664c9d3-56e3-412e-813d-1f2931b23254.jpg', '2024-11-20', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -98,7 +98,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
