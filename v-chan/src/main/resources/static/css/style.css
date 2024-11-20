@@ -440,3 +440,31 @@ p {
     color: white; 
 }
 /*--- End of Profile Style---*/
+
+
+.modal {
+    display: none;  /* Inicialmente oculto */
+    position: fixed;
+    z-index: 9999;  /* Lo mantiene encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo oscuro */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#countdown {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 10px;
+}

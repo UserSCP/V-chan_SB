@@ -43,6 +43,7 @@ public class SecurityConfiguration {
                     .requestMatchers("/users/**").hasRole("ADMIN")
                     .requestMatchers("/test**").hasRole("ADMIN")
                     .requestMatchers("/chat").authenticated()
+                    .requestMatchers("/chat").authenticated()
                     .anyRequest().authenticated()
                     )
             .exceptionHandling(exceptionHandling ->

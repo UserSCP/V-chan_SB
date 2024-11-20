@@ -1,8 +1,17 @@
 package com.reichsacht.v_chan.controller;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.reichsacht.v_chan.model.User;
+import com.reichsacht.v_chan.repository.UserRepository;
+import com.reichsacht.v_chan.service.UserServices;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -10,6 +19,9 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class PageController {
 
+	@Autowired
+	public UserServices userServices;
+	
 	@GetMapping("/")
     public String showHomePage(Model model) {
         model.addAttribute("content", "home/home"); 
@@ -44,11 +56,6 @@ public class PageController {
 		m.addAttribute("title", "Blocked Page");
 		return "index";
 	}
-	@GetMapping("/profile/me")
-	public String showMyProfilePage(Model m) {
-		m.addAttribute("content", "profile/me");
-		m.addAttribute("title", "My Profile");
-		return "index";
-	}
+
 
 }

@@ -6,7 +6,8 @@
 		<div class="profile-container">
 			<div class="foto-user">
 				<div class="background-image">
-					<img class="overlay-image" src="/images/users/default1.png"
+					<img class="overlay-image"
+						th:src="@{'/images/users/' + ${id} + '/' + ${profileFoto}}"
 						alt="Foto perfil" width="200" height="200">
 				</div>
 			</div>
@@ -20,7 +21,7 @@
 					<p sec:authorize="hasRole('ADMIN')">Administrador</p>
 					<p sec:authorize="hasRole('USER')">Usuario</p>
 
-					<p>laydo@gmail.com</p>
+					<p th:text="${email}"></p>
 					<p>Cuenta publica</p>
 					<br>
 					<button class="btn-editar">Editar</button>
@@ -44,5 +45,27 @@
 			</div>
 		</div>
 	</section>
+	    <!-- Formulario para subir una foto -->
+    <form th:action="@{/profile/update-photo}" method="post" enctype="multipart/form-data">
+        <input type="file" name="profilePhoto" accept="image/*" required>
+        <button type="submit">Actualizar Foto</button>
+    </form>
+	<div id="imageModal" class="modal" style="display: none;">
+		<div class="modal-content">
+			<h2 id="modalMessage">Guardando imagen...</h2>
+			<p id="countdown">2</p>
+		</div>
+	</div>
+
+	<!-- Mostrar el modal si showModal es true -->
+	<div th:if="${showModal}">
+		<script>
+			window.onload = function() {
+				showModal(); // Muestra el modal al cargar la página
+			};
+		</script>
+	</div>
+
+	<script th:src="@{/js/app.js}"></script>
 </body>
 </html>
