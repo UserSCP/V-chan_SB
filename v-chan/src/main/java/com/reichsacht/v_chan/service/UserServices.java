@@ -39,7 +39,7 @@ public class UserServices {
 		repo.deleteById(id);
 	}
 
-	public User updateUser(Long id, User user) {
+	public User updateUser(User user, Long id) {
 		return repo.findById(id).map(existingUser -> {
 			if (user.getUsername() != null) {
 				existingUser.setUsername(user.getUsername());
@@ -54,7 +54,7 @@ public class UserServices {
 				existingUser.setAccount_type(user.getAccount_type());
 			}
 			if (user.getProfile_photo() == null) {
-	            user.setProfile_photo("default1.png");
+	            user.setProfile_photo(user.getProfile_photo());
 	        }
 			return repo.save(existingUser);
 		}).orElseThrow(() -> new RuntimeException("No se encontró el usuario con id: " + id));

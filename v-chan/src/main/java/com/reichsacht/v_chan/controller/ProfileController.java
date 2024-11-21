@@ -9,6 +9,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class ProfileController {
     private UserServices userService;
     @Autowired
 	private UserRepository repo;
+
     @PostMapping("/update-photo")
     public String updateProfilePhoto(@RequestParam("profilePhoto") MultipartFile file, Principal principal, RedirectAttributes redirectAttributes,Model m) {
         String username = principal.getName();
@@ -46,14 +48,14 @@ public class ProfileController {
             String fileName = storeFile(file,userId);
             userService.updateProfilePhoto(username, fileName); 
             redirectAttributes.addFlashAttribute("showModal", true);
-            return "redirect:/profile/me"; 
+            return "redirect:/profile/me/settings"; 
         } catch (IOException e) {
             e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Hubo un problema al subir la foto.");
-            return "redirect:/profile/me";  
+            return "redirect:/profile/me/settings";  
         } catch (RuntimeException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
-            return "redirect:/profile/me";
+            return "redirect:/profile/me/settings";
         }
     }
     private String storeFile(MultipartFile file, Long userId) throws IOException {
@@ -133,4 +135,5 @@ public class ProfileController {
 		m.addAttribute("title", "my profile settings");
 		return "index";
 	}
+	
 }

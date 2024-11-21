@@ -49,19 +49,7 @@
 			</div>
 		</div>
 	</section>
-	<div id="imageModal" class="modal" style="display: none;">
-		<div class="modal-content">
-			<h2 id="modalMessage">Guardando imagen...</h2>
-			<p id="countdown">1</p>
-		</div>
-	</div>
-	<div th:if="${showModal}">
-		<script>
-			window.onload = function() {
-				showModal();
-			};
-		</script>
-	</div>
+
 
 	<script th:src="@{/js/profile.js}"></script>
 		<script th:src="@{/js/config.js}"></script>
