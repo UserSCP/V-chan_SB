@@ -16,3 +16,17 @@ function showModal() {
         }
     }, 1000);
 }
+const configContainer = document.querySelector('.config-container');
+const configButton = document.getElementById('configButton');
+
+configButton.addEventListener('click', () => {
+	configContainer.classList.toggle('expanded');
+});
+
+
+const span = document.querySelector('.shadow-icon');
+
+// Añadir o quitar la clase 'active' al hacer clic
+span.addEventListener('click', () => {
+    span.classList.toggle('active');
+});

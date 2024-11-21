@@ -23,6 +23,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import com.reichsacht.v_chan.model.Account_type;
 import com.reichsacht.v_chan.model.User;
 import com.reichsacht.v_chan.repository.UserRepository;
 import com.reichsacht.v_chan.service.UserServices;
@@ -92,6 +93,13 @@ public class ProfileController {
             m.addAttribute("email", user.getEmail());
             m.addAttribute("profileFoto", user.getProfile_photo());
             m.addAttribute("id",user.getId());
+            if(user.getAccount_type()==Account_type.PUBLIC) {
+                m.addAttribute("type","Cuenta Publica");
+            }else {
+                m.addAttribute("type","Cuenta Privada");
+
+            }
+
         }
 		m.addAttribute("content", "profile/me");
 		m.addAttribute("title", "My Profile");
