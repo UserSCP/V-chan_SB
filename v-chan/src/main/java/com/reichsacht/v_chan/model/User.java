@@ -24,6 +24,8 @@ public class User {
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	@Enumerated(EnumType.STRING)
+	private Account_type account_type;
 	private String profile_photo;
 	@CreationTimestamp
 	@Column(name = "high_date", nullable = false)
@@ -32,7 +34,7 @@ public class User {
 	private LocalDate lowDate;
 
 
-	public User(Long id, String username, String email, String password, Role role, String profile_photo,
+	public User(Long id, String username, String email, String password, Role role,Account_type account_type, String profile_photo,
 			LocalDate highDate, LocalDate lowDate) {
 		super();
 		this.id = id;
@@ -40,18 +42,20 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.account_type=account_type;
 		this.profile_photo = profile_photo;
 		this.highDate = highDate;
 		this.lowDate = lowDate;
 	}
 	
-	public User(String username, String email, String password, Role role, String profile_photo, LocalDate highDate,
+	public User(String username, String email, String password, Role role,Account_type account_type,String profile_photo, LocalDate highDate,
 			LocalDate lowDate) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		this.account_type=account_type;
 		this.profile_photo = profile_photo;
 		this.highDate = highDate;
 		this.lowDate = lowDate;
@@ -108,6 +112,14 @@ public class User {
 	}
 	public void setLowDate(LocalDate lowDate) {
 		this.lowDate = lowDate;
+	}
+
+	public Account_type getAccount_type() {
+		return account_type;
+	}
+
+	public void setAccount_type(Account_type account_type) {
+		this.account_type = account_type;
 	}
 
 

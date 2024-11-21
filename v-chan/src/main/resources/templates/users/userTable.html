@@ -8,6 +8,7 @@
 				<th>Nombre</th>
 				<th>Correo Electrónico</th>
 				<th>Role</th>
+				<th>Tipo</th>
 				<th>Eliminar</th>
 				<th>Editar</th>
 			</tr>
@@ -18,6 +19,7 @@
 				<td th:text="${user.username}"></td>
 				<td th:text="${user.email}"></td>
 				<td th:text="${user.role}"></td>
+				<td th:text="${user.account_type}"></td>
 				<td>
 					<form th:action="@{/users/delete/{id}(id=${user.id})}"
 						method="delete"

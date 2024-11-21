@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.reichsacht.v_chan.dto.UserRegisterDTO;
+import com.reichsacht.v_chan.model.Account_type;
 import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.service.EmailVerificationService;
 import com.reichsacht.v_chan.service.UserService;
@@ -68,7 +69,7 @@ public class UserRegisterController {
 		    LocalDate highDate = null;
 
 	        
-	        UserRegisterDTO userRegisterDTO = new UserRegisterDTO(username, email1, password,Role.USER,"default1.png",LocalDate.now(),highDate);
+	        UserRegisterDTO userRegisterDTO = new UserRegisterDTO(username, email1, password,Role.USER,Account_type.PUBLIC,"default1.png",LocalDate.now(),highDate);
 	        userService.guardar(userRegisterDTO); // Llamar al servicio para guardar el usuario
 	        
 	        session.removeAttribute("verificationCode");

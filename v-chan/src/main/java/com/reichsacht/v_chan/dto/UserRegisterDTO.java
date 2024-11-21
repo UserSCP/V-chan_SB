@@ -2,6 +2,7 @@ package com.reichsacht.v_chan.dto;
 
 import java.time.LocalDate;
 
+import com.reichsacht.v_chan.model.Account_type;
 import com.reichsacht.v_chan.model.Role;
 
 
@@ -11,10 +12,10 @@ public class UserRegisterDTO {
 	private String email;
 	private String password;
 	private Role role;
+	private Account_type account_type;
 	private String profile_photo;
 	private LocalDate high_Date;
 	private LocalDate low_date;
-	
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +46,12 @@ public class UserRegisterDTO {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	public Account_type getAccount_type() {
+		return account_type;
+	}
+	public void setAccount_type(Account_type account_type) {
+		this.account_type = account_type;
+	}
 	public String getProfile_photo() {
 		return profile_photo;
 	}
@@ -63,17 +70,30 @@ public class UserRegisterDTO {
 	public void setLow_date(LocalDate low_date) {
 		this.low_date = low_date;
 	}
-	public UserRegisterDTO(Long id, String username, String email, String password, Role role,String profile_photo , LocalDate high_Date,
-			LocalDate low_date) {
+	public UserRegisterDTO(Long id, String username, String email, String password, Role role,
+			Account_type account_type, String profile_photo, LocalDate high_Date, LocalDate low_date) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
-		this.profile_photo= profile_photo;
+		this.account_type = account_type;
+		this.profile_photo = profile_photo;
 		this.high_Date = high_Date;
-		this.low_date = null;
+		this.low_date = low_date;
+	}
+	public UserRegisterDTO(String username, String email, String password, Role role, Account_type account_type,
+			String profile_photo, LocalDate high_Date, LocalDate low_date) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.account_type = account_type;
+		this.profile_photo = profile_photo;
+		this.high_Date = high_Date;
+		this.low_date = low_date;
 	}
 	public UserRegisterDTO(String username) {
 		super();
@@ -82,16 +102,7 @@ public class UserRegisterDTO {
 	public UserRegisterDTO() {
 		super();
 	}
-	public UserRegisterDTO(String username, String email, String password, Role role, String profile_photo,LocalDate high_Date,
-			LocalDate low_date) {
-		super();
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.role = role;
-		this.profile_photo= profile_photo;
-		this.high_Date = high_Date;
-		this.low_date = low_date;
-	}
+	
+	
 	
 }

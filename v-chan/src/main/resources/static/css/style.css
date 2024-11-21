@@ -443,9 +443,9 @@ p {
 
 
 .modal {
-    display: none;  /* Inicialmente oculto */
+    display: none; 
     position: fixed;
-    z-index: 9999;  /* Lo mantiene encima de otros elementos */
+    z-index: 9999;  
     left: 0;
     top: 0;
     width: 100%;
@@ -464,7 +464,7 @@ p {
 }
 
 #countdown {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 10px;
 }

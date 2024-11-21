@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.reichsacht.v_chan.model.Account_type;
 import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.model.User;
 import com.reichsacht.v_chan.service.UserServices;
@@ -37,6 +39,7 @@ public class UserController {
 	 public String showUserForm(Model m) {
 		 m.addAttribute("user", new User());
 		 m.addAttribute("roleUser", Role.values());
+		 m.addAttribute("typeUser", Account_type.values());
 	     m.addAttribute("content", "users/userCreate");
 	     m.addAttribute("title", "Form User"); 
 		 return "index";
@@ -52,6 +55,7 @@ public class UserController {
 	     if (user.isPresent()) {
 	         m.addAttribute("user", user.get());
 	         m.addAttribute("roles", Role.values());
+	         m.addAttribute("types", Account_type.values());
 	         m.addAttribute("content", "users/userEdit");
 	         m.addAttribute("title", "Form User"); 
 	         return "index";

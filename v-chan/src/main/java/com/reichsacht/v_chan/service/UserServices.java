@@ -20,6 +20,7 @@ public class UserServices {
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 	public List<User> getAllUsers() {
+		
 		return repo.findAll();
 	}
 
@@ -28,7 +29,10 @@ public class UserServices {
 	}
 
 	public User saveUser(User user) {
-		return repo.save(user);
+		if (user.getProfile_photo() == null) {
+            user.setProfile_photo("default1.png");
+        }
+        return repo.save(user);
 	}
 
 	public void deleteUser(Long id) {
@@ -46,6 +50,12 @@ public class UserServices {
 			if (user.getRole() != null) {
 				existingUser.setRole(user.getRole());
 			}
+			if(user.getAccount_type()!=null) {
+				existingUser.setAccount_type(user.getAccount_type());
+			}
+			if (user.getProfile_photo() == null) {
+	            user.setProfile_photo("default1.png");
+	        }
 			return repo.save(existingUser);
 		}).orElseThrow(() -> new RuntimeException("No se encontró el usuario con id: " + id));
 	}

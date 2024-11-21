@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.reichsacht.v_chan.dto.UserRegisterDTO;
+import com.reichsacht.v_chan.model.Account_type;
 import com.reichsacht.v_chan.model.Role;
 import com.reichsacht.v_chan.model.User;
 import com.reichsacht.v_chan.repository.UserRepository;
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService{
 	    String encodedPassword = passwordEncoder.encode(userRegisterDTO.getPassword());
 	    LocalDate highDate = null;
 	    String foto ="default1.png";
-	    User user = new User(userRegisterDTO.getUsername(), userRegisterDTO.getEmail(), encodedPassword, Role.USER,foto ,LocalDate.now(), highDate);
+	    User user = new User(userRegisterDTO.getUsername(), userRegisterDTO.getEmail(), encodedPassword, Role.USER,Account_type.PUBLIC,foto ,LocalDate.now(), highDate);
 	    return repo.save(user);
 	}
 

@@ -10,7 +10,11 @@
 	<label for="role">Role:</label> <select id="role" th:field="*{role}">
 		<option th:each="role : ${roleUser}" th:value="${role}"
 			th:text="${role}"></option>
-	</select><br>
+	</select>
+	<label for="type">Type:</label> <select id="type" th:field="*{account_type}">
+    <option th:each="type : ${typeUser}" th:value="${type}" th:text="${type}"></option>
+</select>
+<br>
 	<button type="submit">Guardar Usuario</button>
 </form>
 </html>

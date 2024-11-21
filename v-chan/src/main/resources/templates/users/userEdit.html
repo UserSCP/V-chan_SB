@@ -8,6 +8,9 @@
 	<select id="role" th:field="*{role}">
 		<option th:each="role : ${roles}" th:value="${role}" th:text="${role}">Role</option>
 	</select>
+	<label for="type">Type:</label> <select id="type" th:field="*{account_type}">
+    <option th:each="type : ${types}" th:value="${type}" th:text="${type}"></option>
+</select>
 	<button type="submit">Actualizar</button>
 </form>
 </html>
