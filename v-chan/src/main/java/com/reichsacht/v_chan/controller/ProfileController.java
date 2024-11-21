@@ -39,7 +39,7 @@ public class ProfileController {
     @PostMapping("/update-photo")
     public String updateProfilePhoto(@RequestParam("profilePhoto") MultipartFile file, Principal principal, RedirectAttributes redirectAttributes,Model m) {
         String username = principal.getName();
-        Optional<User> user = userService.findByUsername(username);  // Debes tener un método que busque al usuario por su nombre de usuario
+        Optional<User> user = userService.findByUsername(username);  
         Long userId = user.get().getId();
         
         try {
@@ -104,4 +104,33 @@ public class ProfileController {
 		m.addAttribute("content", "profile/me");
 		m.addAttribute("title", "My Profile");
 		return "index";
-	}}
+	}
+	@GetMapping("/me/settings")
+	public String showConfigurationpage(Model m) {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = "";
+
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        Optional<User> userOptional = repo.findByUsername(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            m.addAttribute("email", user.getEmail());
+            m.addAttribute("profileFoto", user.getProfile_photo());
+            m.addAttribute("id",user.getId());
+            if(user.getAccount_type()==Account_type.PUBLIC) {
+                m.addAttribute("type","Cuenta Publica");
+            }else {
+                m.addAttribute("type","Cuenta Privada");
+
+            }
+
+        }
+		m.addAttribute("content", "profile/settings");
+		m.addAttribute("title", "my profile settings");
+		return "index";
+	}
+}

@@ -35,24 +35,20 @@
 						<p>Seguidos</p>
 					</div>
 				</section>
-			<div class="config-container">
-				<span class="gumi icon-configuration shadow-icon" id="configButton">J</span>
-				<span class="message" id="configMessage">Ir configuración de perfil</span>
-			</div>
+				<div class="config-container">
+					<span class="gumi icon-configuration shadow-icon "
+						id="configButton">J</span> <a class="message" id="configMessage"
+						href="/profile/me/settings">Ir configuración de perfil</a>
+				</div>
 
 			</div>
-			<div class="fix">Notificaciones</div>
+			<div class="container-config-item">Notificaciones</div>
 			<div class="post-container">
-				<div class="fix">mis arts</div>
-				<div class="fix">mis forum</div>
+				<div class="container-config-item">mis arts</div>
+				<div class="container-config-item">mis forum</div>
 			</div>
 		</div>
 	</section>
-	<form th:action="@{/profile/update-photo}" method="post"
-		enctype="multipart/form-data">
-		<input type="file" name="profilePhoto" accept="image/*" required>
-		<button type="submit">Actualizar Foto</button>
-	</form>
 	<div id="imageModal" class="modal" style="display: none;">
 		<div class="modal-content">
 			<h2 id="modalMessage">Guardando imagen...</h2>
@@ -66,7 +62,9 @@
 			};
 		</script>
 	</div>
-	<script th:src="@{/js/app.js}"></script>
 
+	<script th:src="@{/js/profile.js}"></script>
+		<script th:src="@{/js/config.js}"></script>
+	
 </body>
 </html>

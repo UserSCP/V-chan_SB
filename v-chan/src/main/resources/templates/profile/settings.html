@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<body>
+	<div class="profile-section">
+		<br>
+		<section class="configuration-container ">
+			<div class="left-column">
+				<div class="foto-user">
+					<div class="background-image">
+						<img class="overlay-image"
+							th:src="@{'/images/users/' + ${id} + '/' + ${profileFoto}}"
+							alt="Foto perfil" width="200" height="200">
+					</div>
+					<br>
+					<div>
+						<h2>
+							<span th:text="${#authentication.name}"></span> <span
+								sec:authorize="hasRole('ADMIN')">🜲</span>
+						</h2>
+					</div>
+				</div>
+				<div class="container-config-item" id="section-1">
+					<p>Edit My Profile</p>
+				</div>
+				<div class="container-config-item" id="section-3">
+					<p>Change Photo
+</p>
+				</div>
+				<div class="container-config-item" id="section-5">
+					<p>Change Password</p>
+				</div>
+				<div class="container-config-item" id="section-7">
+					<p>Policies and Privacy</p>
+				</div>
+			</div>
+
+			<div class="right-column">
+				<div class="container-config-item" id="section-2" hidden=true>Section
+					2</div>
+				<div class="container-config-item" id="section-4" hidden=true>
+
+					<form th:action="@{/profile/update-photo}" method="post"
+						enctype="multipart/form-data">
+						<input type="file" name="profilePhoto" accept="image/*" required>
+						<button type="submit">Actualizar Foto</button>
+					</form>
+					
+				</div>
+				<div class="container-config-item" id="section-6" hidden=true>Section
+					6</div>
+				<div class="container-config-item" id="section-8" hidden=true>Section
+					8</div>
+			</div>
+		</section>
+		
+		
+	</div>
+	
+	<script th:src="@{/js/config.js}"></script>
+</body>
+</html>

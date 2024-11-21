@@ -343,14 +343,6 @@ p {
 	height: 100vh;
 }
 
-.fix {
-	background-color: #FF5733;
-	padding: 10px;
-	text-align: center;
-	margin: 2px;
-	border-radius: 10px;
-}
-
 .info-user {
 	padding: 20px;
 	border-radius: 10px;
@@ -361,10 +353,12 @@ p {
 	align-items: center;
 }
 
-.profile-section .info-user, .profile-section .foto-user {
+.profile-section .info-user, .profile-section .foto-user,.container-config-item{
+	padding:10px; 
 	border: 3px solid #212121;
 	backdrop-filter: blur(30px);
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
 }
 
 .info-user h2 {
@@ -486,16 +480,20 @@ p {
 	left: 100%;
 	top: 0;
 	transform: translateX(-250px);
-	transition-delay: 0.5s;
+	transition-delay: 0.2s;
+	text-decoration:none;
+	color:white;
 }
-
+.message:hover{
+	color:#aaa;
+}
 .config-container.expanded .message {
 	width: auto;
 	opacity: 1;
 }
 
 .config-container.expanded .icon-configuration {
-	transform: translateX(-250px); 
+	transform: translateX(-250px);
 }
 /*--- End of Profile Style---*/
 .modal {
@@ -523,4 +521,57 @@ p {
 	font-size: 2rem;
 	font-weight: bold;
 	margin-top: 10px;
+}
+
+
+
+.configuration-container {
+	display: flex; 
+	gap: 20px;
+	width: 80%;
+	place-self: center;
+}
+
+.configuration-container .left-column {
+	flex: 1 1 40%;
+}
+
+.configuration-container .right-column {
+	flex: 1 1 100%;
+}
+
+.left-column .foto-user{
+	flex-direction: column;
+	padding-bottom:0;
+}
+
+.container-config-item{
+	padding:15px;
+	margin: 5px 0;
+	color:white;
+		    place-items: center;
+	
+}
+.container-config-item p {
+	margin: 5px 0;
+	color: #aaa;
+	text-shadow: 0 0 20px BLACK, 0 0 50px BLACK, 0 0 white, 0 0 white;
+	cursor: context-menu;
+}
+
+.container-config-item p:hover {
+	color: white;
+	text-shadow: 0 0 20px white, 0 0 50px white, 0 0 black, 0 0 clack;
+	
+}
+@media ( max-width : 768px) {
+	.left-column {
+		flex: 1 1 100%; 
+	}
+	.right-column {
+		flex: 1 1 100%; 
+	}
+	.configuration-container {
+		flex-wrap: wrap;
+	}
 }
