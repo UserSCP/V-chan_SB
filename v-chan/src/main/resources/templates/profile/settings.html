@@ -35,10 +35,13 @@
 			</div>
 
 			<div class="right-column">
+				<div th:if="${message}">
+		<p th:text="${message}"></p>
+	</div>
 				<div class="container-config-item" id="section-2" hidden=true>Section
 					2</div>
 				<div class="container-config-item" id="section-4" hidden=true>
-<p th:text="${menssage}"></p>
+					<p th:text="${menssage}"></p>
 					<form th:action="@{/profile/update-photo}" method="post"
 						enctype="multipart/form-data">
 						<input type="file" name="profilePhoto" accept="image/*" required>
@@ -47,8 +50,8 @@
 
 				</div>
 				<div class="container-config-item" id="section-6" hidden=true>
-					<form action="/change-password" method="post"
-						class="password-form">
+					<form action="/change-password" method="post" class="password-form">
+					
 						<h2>Cambiar Contraseña</h2>
 						<div class="form-group">
 							<label for="currentPassword">Contraseña Actual:</label> <input

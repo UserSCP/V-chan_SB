@@ -56,6 +56,9 @@ public class UserServices {
 			if (user.getProfile_photo() == null) {
 	            user.setProfile_photo(user.getProfile_photo());
 	        }
+			if(user.getPassword()!=null) {
+		        existingUser.setPassword(user.getPassword());  // Cambiar solo la contraseña
+			}
 			return repo.save(existingUser);
 		}).orElseThrow(() -> new RuntimeException("No se encontró el usuario con id: " + id));
 	}
