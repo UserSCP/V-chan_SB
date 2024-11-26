@@ -146,5 +146,33 @@ public class ProfileController {
      */
 	@GetMapping("/me/settings")
 	public String showConfigurationpage(Model m) {
-		// Similar a "showMyProfilePage", obtiene la información del usuario autenticado
+		// Similar a "showMyProfilePage", obtiene la información del usuario autenticado.
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = "";
+
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        Optional<User> userOptional = repo.findByUsername(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            m.addAttribute("email", user.getEmail());
+            m.addAttribute("profileFoto", user.getProfile_photo());
+            m.addAttribute("id", user.getId());
+            if (user.getAccount_type() == Account_type.PUBLIC) {
+                m.addAttribute("type", "Cuenta Pública");
+            } else {
+                m.addAttribute("type", "Cuenta Privada");
+            }
+        }
+
+        m.addAttribute("content", "profile/settings"); // Contenido dinámico para la vista.
+        m.addAttribute("title", "My Profile Settings"); // Título de la página.
+        return "index";
+	}
+	
+}
 
